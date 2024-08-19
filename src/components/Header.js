@@ -3,6 +3,7 @@ import { routes } from "../routes";
 import styled from "styled-components";
 import { colors, margin, padding } from "../GlobalStyled";
 import { NavBar } from "./NavBar";
+import { useState } from "react";
 
 const ContainerBox = styled.header`
   width: 100%;
@@ -16,11 +17,13 @@ const ContainerBox = styled.header`
 const Container = styled.div`
   width: 100%;
   height: 60px;
-  background-color: yellow;
+  background-color: ${(props) => props.bgColor};
+  backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
   padding: 0 ${padding.side};
   justify-content: space-between;
+  transition: 0.5s ease;
 
   @media screen and (max-width: 860px) {
     padding: 0 ${padding.MoSide};
@@ -57,9 +60,23 @@ const Logo = styled.div`
 `;
 
 export const Header = () => {
+  const [headerBg, setHeaderBg] = useState();
+
+  const ScrollHandler = () => {
+    const pageY = window.scrollY;
+
+    if (pageY >= 80) {
+      setHeaderBg(colors.baseOpacity);
+    } else {
+      setHeaderBg("rgba(255, 255, 255, 0)");
+    }
+  };
+
+  window.addEventListener("scroll", ScrollHandler);
+
   return (
     <ContainerBox>
-      <Container>
+      <Container bgColor={headerBg}>
         <Logo>
           <Link to={routes.home}>
             <img src="https://ifh.cc/g/vhd1WG.png" alt="로고" />

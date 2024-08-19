@@ -4,6 +4,7 @@ import { routes } from "../routes";
 import { CgMenuHotdog } from "react-icons/cg";
 import { useState } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { colors } from "../GlobalStyled";
 
 const Menu = styled.ul`
   display: flex;
@@ -50,12 +51,14 @@ const SideMenu = styled.ul`
   width: 100%;
   display: none;
   transition: 1s ease;
+  font-size: 16px;
+  backdrop-filter: blur(5px);
 
   &.show_menu {
     display: flex;
     padding: 20px;
     justify-content: space-around;
-    background-color: aliceblue;
+    background-color: ${colors.baseOpacity};
     opacity: 1;
     transition: 0.5s ease;
   }
@@ -85,16 +88,16 @@ export const NavBar = () => {
       {/* // 웹 */}
       <Menu>
         <li>
-          <Link to={routes.center}>공고중동물</Link>
+          <Link to={routes.announ}>공고중동물</Link>
         </li>
         <li>
-          <Link to={routes.center}>보호중동물</Link>
+          <Link to={routes.protect}>보호중동물</Link>
         </li>
         <li>
           <Link to={routes.center}>전국보호소</Link>
         </li>
         <li>
-          <Link to={routes.center}>내관심동물</Link>
+          <Link to={routes.saveheart}>내관심동물</Link>
         </li>
       </Menu>
       {/* // 모바일 */}
@@ -109,13 +112,16 @@ export const NavBar = () => {
         <SideBox>
           <SideMenu className={isOpen ? "show_menu" : "hide_menu"}>
             <li>
-              <Link to={routes.center}>공고중동물</Link>
+              <Link to={routes.announ}>공고중동물</Link>
             </li>
             <li>
-              <Link to={routes.center}>보호중동물</Link>
+              <Link to={routes.protect}>보호중동물</Link>
             </li>
             <li>
-              <Link to={routes.center}>전국보호소</Link>
+              <Link to={routes.center}>보호소찾기</Link>
+            </li>
+            <li>
+              <Link to={routes.saveheart}>관심동물</Link>
             </li>
           </SideMenu>
         </SideBox>

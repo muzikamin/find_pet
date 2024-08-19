@@ -5,6 +5,7 @@ export const colors = {
   point: "#307E7C",
   middle: "#B7DCC7",
   base: "#69AD98",
+  baseOpacity: "rgba(255, 255, 255, 0.7)",
 };
 
 export const padding = {
