@@ -2,11 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { getPetData } from "../../api";
 import { Loading } from "../../components/Loading";
 import styled from "styled-components";
+import { MainBanner } from "./MainBanner";
 
-const Box = styled.div`
-  height: 200vh;
-  background-color: red;
-`;
+const Box = styled.div``;
 
 export const Home = () => {
   const { data, isLoading } = useQuery({
@@ -15,5 +13,9 @@ export const Home = () => {
   });
   console.log(data);
 
-  return <Box>테스트ㅡㅡㅡ</Box>;
+  return (
+    <>
+      <MainBanner />
+    </>
+  );
 };
