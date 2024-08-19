@@ -12,3 +12,15 @@ const instance = axios.create({
 export const getPetData = () => {
   return instance.get("abandonmentPublic?").then((res) => res.data);
 };
+
+export const getCatData = () => {
+  return instance
+    .get("abandonmentPublic?&upkind=422400")
+    .then((res) => res.data);
+};
+
+export const getDogData = () => {
+  return instance
+    .get("abandonmentPublic?&upkind=417000")
+    .then((res) => res.data);
+};

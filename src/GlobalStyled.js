@@ -24,6 +24,7 @@ body {
 font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 letter-spacing: -1px;
 color: #151515;
+word-break: keep-all
 }
 
 a {

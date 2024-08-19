@@ -5,7 +5,7 @@ import { routes } from "../../routes";
 
 const Container = styled.div`
   width: 100%;
-  height: 70vh;
+  /* height: 70vh; */
   display: flex;
   background-color: ${colors.mainBanner};
 `;
@@ -18,7 +18,7 @@ const Wrap = styled.div`
   padding: ${padding.conSide};
 
   @media screen and (max-width: 860px) {
-    padding: 0 ${padding.MoSide};
+    padding: 100px ${padding.MoSide};
     max-width: 660px;
   }
 

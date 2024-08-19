@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { colors, margin, padding } from "../GlobalStyled";
 import { NavBar } from "./NavBar";
 import { useState } from "react";
+import { MdOutlinePets } from "react-icons/md";
 
 const ContainerBox = styled.header`
   width: 100%;
@@ -41,9 +42,10 @@ const Logo = styled.div`
     align-items: center;
   }
 
-  img {
-    width: 25px;
-    margin-right: 8px;
+  .logoicon {
+    font-size: 25px;
+    color: ${colors.point};
+    margin-right: 5px;
 
     @media screen and (max-width: 860px) {
       width: 20px;
@@ -79,7 +81,7 @@ export const Header = () => {
       <Container bgColor={headerBg}>
         <Logo>
           <Link to={routes.home}>
-            <img src="https://ifh.cc/g/vhd1WG.png" alt="로고" />
+            <MdOutlinePets className="logoicon" />
             <h3>파인드펫</h3>
           </Link>
         </Logo>
