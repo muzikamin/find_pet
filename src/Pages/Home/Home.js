@@ -4,12 +4,13 @@ import { Loading } from "../../components/Loading";
 import styled from "styled-components";
 import { MainBanner } from "./MainBanner";
 import { Sec1 } from "./Sec1";
+import { Sec2 } from "./Sec2";
 
 const Box = styled.div``;
 
 export const Home = () => {
   const { data: allData, isLoading } = useQuery({
-    queryKey: ["abandonmentPublic?"],
+    queryKey: ["abandonmentPublic?&numOfRows=16"],
     queryFn: getPetData,
   });
 
@@ -23,8 +24,8 @@ export const Home = () => {
     queryFn: getDogData,
   });
 
-  console.log(dogData);
-  console.log(catData);
+  // console.log(dogData);
+  // console.log(catData);
 
   return (
     <>
@@ -40,6 +41,7 @@ export const Home = () => {
                 catData={catData?.response?.body?.totalCount}
                 dogData={dogData?.response?.body?.totalCount}
               />
+              <Sec2 data={allData?.response?.body?.items?.item} />
             </Box>
           )}
         </>

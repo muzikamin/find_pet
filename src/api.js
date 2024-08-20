@@ -10,7 +10,9 @@ const instance = axios.create({
 });
 
 export const getPetData = () => {
-  return instance.get("abandonmentPublic?").then((res) => res.data);
+  return instance
+    .get("abandonmentPublic?&numOfRows=16")
+    .then((res) => res.data);
 };
 
 export const getCatData = () => {
