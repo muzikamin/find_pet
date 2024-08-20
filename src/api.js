@@ -26,3 +26,15 @@ export const getDogData = () => {
     .get("abandonmentPublic?&upkind=417000")
     .then((res) => res.data);
 };
+
+export const getProtectData = () => {
+  return instance
+    .get("abandonmentPublic?&numOfRows=40&state=protect")
+    .then((res) => res.data);
+};
+
+export const getNoticeData = () => {
+  return instance
+    .get("abandonmentPublic?&numOfRows=40&state=notice")
+    .then((res) => res.data);
+};
