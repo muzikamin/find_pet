@@ -6,6 +6,7 @@ import { PageNotFound } from "./PageNotFound";
 import { SaveHeart } from "./Pages/Menu/SaveHeart";
 import { Center } from "./Pages/Menu/Center";
 import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 import { Announ } from "./Pages/Menu/Announ";
 import { Protect } from "./Pages/Menu/Protect";
 
@@ -23,6 +24,7 @@ const Router = () => {
         <Route path={routes.search} element={<Home />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
+      <Footer />
     </HashRouter>
   );
 };
