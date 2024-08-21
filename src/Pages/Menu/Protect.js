@@ -16,8 +16,10 @@ import {
   DiText,
   Icon,
 } from "../Menu/menuStyle";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 export const Protect = () => {
+  useScrollTop();
   const { data: allData, isLoading } = useQuery({
     queryKey: ["abandonmentPublic?&numOfRows=40&state=protect"],
     queryFn: getProtectData,

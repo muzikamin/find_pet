@@ -9,6 +9,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Announ } from "./Pages/Menu/Announ";
 import { Protect } from "./Pages/Menu/Protect";
+import { TopBtn } from "./lib/TopBtn";
 
 const Router = () => {
   return (
@@ -25,6 +26,7 @@ const Router = () => {
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
       <Footer />
+      <TopBtn />
     </HashRouter>
   );
 };

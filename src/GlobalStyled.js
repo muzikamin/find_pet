@@ -6,7 +6,8 @@ export const colors = {
   middle: "#B7DCC7",
   base: "#69AD98",
   mainBanner: "#daf1e4",
-  baseOpacity: "rgba(255, 255, 255, 0.7)",
+  baseOpacity: "rgba(255, 255, 255, 0.9)",
+  backGround: "rgba(44, 255, 0, 0.03)",
 };
 
 export const padding = {

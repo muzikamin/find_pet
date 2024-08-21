@@ -3,8 +3,9 @@ import { colors, padding } from "../../GlobalStyled";
 
 export const Container = styled.div`
   width: 100%;
+
   padding: 100px ${padding.side};
-  background-color: rgba(44, 255, 0, 0.03);
+  background-color: ${colors.backGround};
 
   @media screen and (max-width: 860px) {
     padding: 100px ${padding.MoSide};
@@ -12,6 +13,8 @@ export const Container = styled.div`
 `;
 
 export const ConWrap = styled.div`
+  max-width: 1500px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border: 2px solid #fff;

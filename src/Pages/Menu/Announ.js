@@ -10,14 +10,15 @@ import {
   Container,
   ConWrap,
   Con,
-  TextBox,
   Img,
   Text,
   DiText,
   Icon,
 } from "../Menu/menuStyle";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 export const Announ = () => {
+  useScrollTop();
   const { data: allData, isLoading } = useQuery({
     queryKey: ["abandonmentPublic?&numOfRows=40&state=notice"],
     queryFn: getNoticeData,

@@ -5,10 +5,13 @@ import styled from "styled-components";
 import { MainBanner } from "./MainBanner";
 import { Sec1 } from "./Sec1";
 import { Sec2 } from "./Sec2";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 const Box = styled.div``;
 
 export const Home = () => {
+  useScrollTop();
+
   const { data: allData, isLoading } = useQuery({
     queryKey: ["abandonmentPublic?&numOfRows=16"],
     queryFn: getPetData,

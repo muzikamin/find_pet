@@ -15,6 +15,12 @@ export const getPetData = () => {
     .then((res) => res.data);
 };
 
+export const getPetAllData = () => {
+  return instance
+    .get("abandonmentPublic?&numOfRows=999")
+    .then((res) => res.data);
+};
+
 export const getCatData = () => {
   return instance
     .get("abandonmentPublic?&upkind=422400")
