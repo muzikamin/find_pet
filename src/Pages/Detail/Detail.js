@@ -6,11 +6,16 @@ import styled from "styled-components";
 import { colors, padding } from "../../GlobalStyled";
 import { useParams } from "react-router-dom";
 import { GiFemale, GiMale } from "react-icons/gi";
+import { Map } from "./Map";
 
 const Container = styled.div`
   width: 100%;
   background-color: ${colors.backGround};
   padding: 50px ${padding.side};
+
+  @media screen and (max-width: 860px) {
+    padding: 50px ${padding.MoSide};
+  }
 `;
 
 const BoxWrap = styled.div`
@@ -22,19 +27,41 @@ const BoxWrap = styled.div`
   border-radius: 30px;
   width: 100%;
   display: flex;
+
   align-items: center;
   justify-content: space-between;
   padding: 50px;
+
+  @media screen and (max-width: 960px) {
+    padding: 30px;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 15px;
+  }
 `;
 
 const ImgBox = styled.div`
   width: 48%;
+
+  @media screen and (max-width: 960px) {
+    width: 100%;
+    margin-bottom: 30px;
+  }
 `;
 
 const Img = styled.div`
   width: 100%;
   height: 550px;
-  position: relative;
+
+  @media screen and (max-width: 960px) {
+    height: 450px;
+  }
+
+  @media screen and (max-width: 500px) {
+    height: 300px;
+  }
 
   img {
     width: 100%;
@@ -44,37 +71,57 @@ const Img = styled.div`
   }
 `;
 
-const State = styled.div`
-  width: 100%;
-  position: absolute;
-  border-radius: 30px;
-  bottom: 0;
-  left: 0;
-  background-color: ${colors.middle};
-  color: ${colors.point};
-  font-size: 30px;
-  font-weight: 900;
-  padding: 15px 20px;
-`;
-
 const ConBox = styled.div`
   width: 48%;
+
+  @media screen and (max-width: 960px) {
+    width: 100%;
+    padding: 15px;
+  }
 `;
 
 const ConOne = styled.div`
   width: 100%;
   display: flex;
+  position: relative;
+`;
+
+const State = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: ${colors.point};
+  border-radius: 30px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 900;
+  padding: 12px 15px;
+
+  @media screen and (max-width: 500px) {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
 `;
 
 const Name = styled.div`
   font-size: 40px;
   font-weight: 900;
+
+  @media screen and (max-width: 500px) {
+    font-size: 28px;
+  }
 `;
 
 const SexCd = styled.div`
   font-size: 40px;
-  line-height: 50px;
+  line-height: 40px;
   margin-left: 18px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 28px;
+    line-height: 28px;
+    margin-left: 8px;
+  }
 `;
 
 const NoticeNo = styled.div`
@@ -88,35 +135,95 @@ const DetailBox = styled.div`
   width: 100%;
   display: flex;
   padding: 10px;
+
+  @media screen and (max-width: 680px) {
+    flex-direction: column;
+    padding: 0;
+  }
 `;
 
 const DetailText = styled.div`
   width: 50%;
+
+  @media screen and (max-width: 680px) {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 `;
 
 const Title = styled.h3`
   font-size: 20px;
   line-height: 30px;
-  margin-bottom: 10px;
   font-weight: 900;
 `;
 
 const Text = styled.h3`
   font-size: 18px;
+  line-height: 28px;
 `;
 
 const CareSpot = styled.div`
+  margin-right: 60px;
+
+  @media screen and (max-width: 960px) {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+`;
+
+const CareTitle = styled.div`
+  font-size: 24px;
+  line-height: 34px;
   padding: 10px;
+  font-weight: 900;
+  span {
+    font-size: 28px;
+    color: ${colors.point};
+
+    @media screen and (max-width: 500px) {
+      font-size: 22px;
+      line-height: 30px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 18px;
+  }
+`;
+
+const CareText = styled.div`
+  width: 100%;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: 960px) {
+    padding: 15px;
+    flex-direction: column;
+  }
+`;
+
+const CareTextWrap = styled.div`
+  width: 100%;
 `;
 
 const Special = styled.div`
   padding: 10px;
+
+  @media screen and (max-width: 680px) {
+    padding: 0;
+    margin-bottom: 15px;
+  }
 `;
 
 const Border = styled.div`
   width: 100%;
   margin: 10px 0;
   border-bottom: 1.5px solid #e5e5e5;
+
+  @media screen and (max-width: 680px) {
+    margin: 20px 0;
+  }
 `;
 
 export const Detail = () => {
@@ -147,7 +254,6 @@ export const Detail = () => {
                 <ImgBox>
                   <Img>
                     <img src={realData[0].popfile} alt={realData[0].kindCd} />
-                    <State>{realData[0].processState}</State>
                   </Img>
                 </ImgBox>
                 <ConBox>
@@ -160,6 +266,7 @@ export const Detail = () => {
                         <GiMale color="blue" />
                       )}
                     </SexCd>
+                    <State>{realData[0].processState}</State>
                   </ConOne>
                   <NoticeNo>{realData[0].noticeNo}</NoticeNo>
                   <Border />
@@ -202,20 +309,29 @@ export const Detail = () => {
                   </Special>
                 </ConBox>
               </BoxWrap>
+
               <BoxWrap>
-                <CareSpot></CareSpot>
-                <CareSpot>
-                  <Title>보호장소</Title>
-                  <Text>{realData[0].careNm}</Text>
-                </CareSpot>
-                <CareSpot>
-                  <Title>보호주소</Title>
-                  <Text>{realData[0].careAddr}</Text>
-                </CareSpot>
-                <CareSpot>
-                  <Title>전화번호</Title>
-                  <Text>{realData[0].careTel}</Text>
-                </CareSpot>
+                <CareTextWrap>
+                  <CareTitle>
+                    저는 <span>{realData[0].careNm}</span>에서 기다리고 있어요
+                    😄
+                  </CareTitle>
+                  <CareText>
+                    <CareSpot>
+                      <Title>보호장소</Title>
+                      <Text>{realData[0].careNm}</Text>
+                    </CareSpot>
+                    <CareSpot>
+                      <Title>보호주소</Title>
+                      <Text>{realData[0].careAddr}</Text>
+                    </CareSpot>
+                    <CareSpot>
+                      <Title>전화번호</Title>
+                      <Text>{realData[0].careTel}</Text>
+                    </CareSpot>
+                  </CareText>
+                  <Map title={realData[0].careNm} add={realData[0].careAddr} />
+                </CareTextWrap>
               </BoxWrap>
             </Container>
           )}

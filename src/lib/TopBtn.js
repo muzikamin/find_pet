@@ -7,6 +7,7 @@ const Container = styled.div`
   height: 50px;
   background-color: ${colors.point};
   position: fixed;
+  z-index: 9999;
   cursor: pointer;
   right: 40px;
   bottom: 40px;
@@ -16,8 +17,8 @@ const Container = styled.div`
   align-items: center;
 
   @media screen and (max-width: 680px) {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     right: 25px;
     bottom: 25px;
   }
