@@ -10,13 +10,13 @@ import {
   Container,
   ConWrap,
   Con,
-  TextBox,
   Img,
   Text,
   DiText,
   Icon,
 } from "../Menu/menuStyle";
 import { useScrollTop } from "../../lib/useScrollTop";
+import { Heart } from "./Heart";
 
 export const Protect = () => {
   useScrollTop();
@@ -41,6 +41,7 @@ export const Protect = () => {
             {result &&
               result.map((data) => (
                 <Con key={data.desertionNo}>
+                  <Heart />
                   <Link to={`/detail/${data.desertionNo}`}>
                     <Img>
                       <img src={data.popfile} alt={data.kindCd} />

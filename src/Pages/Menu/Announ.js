@@ -16,6 +16,7 @@ import {
   Icon,
 } from "../Menu/menuStyle";
 import { useScrollTop } from "../../lib/useScrollTop";
+import { Heart } from "./Heart";
 
 export const Announ = () => {
   useScrollTop();
@@ -40,6 +41,7 @@ export const Announ = () => {
             {result &&
               result.map((data) => (
                 <Con key={data.desertionNo}>
+                  <Heart />
                   <Link to={`/detail/${data.desertionNo}`}>
                     <Img>
                       <img src={data.popfile} alt={data.kindCd} />

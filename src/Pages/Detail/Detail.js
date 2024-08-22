@@ -7,6 +7,7 @@ import { colors, padding } from "../../GlobalStyled";
 import { useParams } from "react-router-dom";
 import { GiFemale, GiMale } from "react-icons/gi";
 import { Map } from "./Map";
+import { Heart } from "../Menu/Heart";
 
 const Container = styled.div`
   width: 100%;
@@ -22,6 +23,8 @@ const BoxWrap = styled.div`
   max-width: 1200px;
   margin: 50px auto;
   border: 1.5px solid ${colors.point};
+  position: relative;
+
   background-color: #fff;
   box-shadow: 5px 3px 15px #dddddd;
   border-radius: 30px;
@@ -226,6 +229,12 @@ const Border = styled.div`
   }
 `;
 
+const HeartBox = styled.div`
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+`;
+
 export const Detail = () => {
   useScrollTop();
 
@@ -251,6 +260,9 @@ export const Detail = () => {
           {realData && (
             <Container>
               <BoxWrap>
+                <HeartBox>
+                  <Heart />
+                </HeartBox>
                 <ImgBox>
                   <Img>
                     <img

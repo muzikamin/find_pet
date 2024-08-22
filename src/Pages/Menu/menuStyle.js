@@ -41,6 +41,7 @@ export const Con = styled.div`
   background-color: white;
   box-shadow: 5px 3px 15px #dddddd;
   cursor: pointer;
+  position: relative;
 
   &:hover {
     border: 2px solid ${colors.middle};

@@ -8,6 +8,7 @@ import { FaRegCalendar } from "react-icons/fa";
 import { SlLocationPin } from "react-icons/sl";
 import { MdOutlineOtherHouses } from "react-icons/md";
 import { routes } from "../../routes";
+import { Heart } from "../Menu/Heart";
 
 const Container = styled.div`
   width: 100%;
@@ -64,6 +65,7 @@ const Con = styled.div`
   padding: 20px;
   background-color: white;
   box-shadow: 5px 3px 15px #dddddd;
+  position: relative;
   cursor: pointer;
 
   &:hover {
@@ -148,6 +150,7 @@ export const Sec2 = ({ data }) => {
         <ConWrap>
           {data.map((data) => (
             <Con key={data.desertionNo}>
+              <Heart />
               <Link to={`/detail/${data.desertionNo}`}>
                 <Img>
                   <img src={data.popfile} alt={data.kindCd} />
