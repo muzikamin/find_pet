@@ -253,7 +253,14 @@ export const Detail = () => {
               <BoxWrap>
                 <ImgBox>
                   <Img>
-                    <img src={realData[0].popfile} alt={realData[0].kindCd} />
+                    <img
+                      src={
+                        realData[0].popfile
+                          ? realData[0].popfile
+                          : "https://th.bing.com/th/id/OIP.H1gHhKVbteqm1U5SrwpPgwAAAA?rs=1&pid=ImgDetMain"
+                      }
+                      alt={realData[0].kindCd}
+                    />
                   </Img>
                 </ImgBox>
                 <ConBox>
