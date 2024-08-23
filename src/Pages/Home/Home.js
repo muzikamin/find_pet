@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getCatData, getDogData, getKindData, getPetData } from "../../api";
+import { getCatData, getDogData, getPetData } from "../../api";
 import { Loading } from "../../components/Loading";
 import styled from "styled-components";
 import { MainBanner } from "./MainBanner";

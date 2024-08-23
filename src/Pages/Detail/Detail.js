@@ -261,7 +261,7 @@ export const Detail = () => {
             <Container>
               <BoxWrap>
                 <HeartBox>
-                  <Heart />
+                  <Heart data={realData[0]} />
                 </HeartBox>
                 <ImgBox>
                   <Img>

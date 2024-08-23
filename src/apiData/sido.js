@@ -12,6 +12,7 @@ export const sido = {
             orgCd: "6110000",
             orgdownNm: "서울특별시",
           },
+          {},
           {
             orgCd: "6260000",
             orgdownNm: "부산광역시",
@@ -27,10 +28,6 @@ export const sido = {
           {
             orgCd: "6290000",
             orgdownNm: "광주광역시",
-          },
-          {
-            orgCd: "5690000",
-            orgdownNm: "세종특별자치시",
           },
           {
             orgCd: "6300000",

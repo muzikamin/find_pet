@@ -10,6 +10,7 @@ import { Footer } from "./components/Footer";
 import { Announ } from "./Pages/Menu/Announ";
 import { Protect } from "./Pages/Menu/Protect";
 import { TopBtn } from "./lib/TopBtn";
+import { ProtectEx } from "./Pages/Menu/ProtectEx";
 
 const Router = () => {
   return (
@@ -20,7 +21,7 @@ const Router = () => {
         <Route path={routes.detail} element={<Detail />} />
         <Route path={routes.center} element={<Center />} />
         <Route path={routes.announ} element={<Announ />} />
-        <Route path={routes.protect} element={<Protect />} />
+        <Route path={routes.protect} element={<ProtectEx />} />
         <Route path={routes.saveheart} element={<SaveHeart />} />
         <Route path={routes.search} element={<Home />} />
         <Route path="/*" element={<PageNotFound />} />
