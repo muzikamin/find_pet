@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { GiFemale, GiMale } from "react-icons/gi";
 import { Map } from "./Map";
 import { Heart } from "../Menu/Heart";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -251,6 +252,19 @@ export const Detail = () => {
 
   console.log(realData);
 
+  // ------------------------관심동물
+
+  const [heart, setHeart] = useState(() => {
+    const registfavorite = localStorage.getItem("favorite");
+    return registfavorite ? JSON.parse(registfavorite) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("favorite", JSON.stringify(heart));
+  }, [heart]);
+
+  // ------------------------관심동물
+
   return (
     <>
       {isLoading ? (
@@ -261,7 +275,7 @@ export const Detail = () => {
             <Container>
               <BoxWrap>
                 <HeartBox>
-                  <Heart data={realData[0]} />
+                  <Heart heart={heart} setHeart={setHeart} data={realData[0]} />
                 </HeartBox>
                 <ImgBox>
                   <Img>

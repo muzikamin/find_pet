@@ -2,13 +2,10 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { colors, padding } from "../../GlobalStyled";
 import { GiFemale, GiMale } from "react-icons/gi";
-import { CiCalendar } from "react-icons/ci";
-import { IoLocationOutline } from "react-icons/io5";
 import { FaRegCalendar } from "react-icons/fa";
 import { SlLocationPin } from "react-icons/sl";
 import { MdOutlineOtherHouses } from "react-icons/md";
 import { routes } from "../../routes";
-import { Heart } from "../Menu/Heart";
 
 const Container = styled.div`
   width: 100%;
@@ -150,7 +147,6 @@ export const Sec2 = ({ data }) => {
         <ConWrap>
           {data.map((data) => (
             <Con key={data.desertionNo}>
-              <Heart />
               <Link to={`/detail/${data.desertionNo}`}>
                 <Img>
                   <img src={data.popfile} alt={data.kindCd} />

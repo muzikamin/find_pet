@@ -50,3 +50,13 @@ export const getNoticeData = () => {
     .get("abandonmentPublic?&numOfRows=40&state=notice")
     .then((res) => res.data);
 };
+
+// ----------------------------------------------------------------------
+
+// export const getCenterData = () => {
+//   return instance
+//     .get("abandonmentPublic/shelter?&upr_cd=6110000", {params: {org_cd: ${data}}})
+//     .then((res) => res.data);
+// };
+
+// `&upr_cd=6110000&org_cd=${보호소코드명}

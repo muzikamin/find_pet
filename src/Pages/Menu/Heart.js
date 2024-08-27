@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import styled from "styled-components";
 import { colors } from "../../GlobalStyled";
@@ -13,33 +13,42 @@ const HeartIcon = styled.div`
   cursor: pointer;
 `;
 
-export const Heart = ({ data }) => {
-  const [heart, setHeart] = useState(false);
-  const { id } = useParams();
+export const Heart = ({ heart, setHeart, data }) => {
+  const [heartValue, setHeartValue] = useState(false);
+  const { id: datailId } = useParams();
 
-  const heartTrue = () => {
-    let favoriteData = JSON.parse(localStorage.getItem("favorite")) || [];
-    favoriteData.push(data);
-    const uniqueFavoriteData = Array.from(new Set(favoriteData));
-    localStorage.setItem("favorite", JSON.stringify(uniqueFavoriteData));
+  useEffect(() => {
+    const storageData = JSON.parse(localStorage.getItem("favorite")) || [];
+    const onOff = storageData.some((data) => data.desertionNo === datailId);
 
-    setHeart(true);
+    setHeartValue(onOff);
+  }, [datailId, heartValue, setHeart]);
+
+  const heartClick = () => {
+    if (heartValue === false) {
+      setHeart([
+        ...heart, //이전의 내용을 불러옴, 대신 배열을 까서 내용만 (...)
+        data,
+      ]);
+
+      setHeartValue(true);
+    }
   };
 
-  const heartFalse = () => {
-    setHeart(false);
+  const heartDelete = () => {
+    if (heartValue === true) {
+      setHeart(heart.filter((heart) => heart !== data));
 
-    const favoriteData = JSON.parse(localStorage.getItem("favorite")) || [];
-    // const deleteData = favoriteData.filter((v) => v.data !== data);
-    // localStorage.setItem("favorite", JSON.stringify(deleteData));
+      setHeartValue(false);
+    }
   };
 
   return (
     <HeartIcon role="button">
-      {heart === true ? (
-        <FaHeart size={26} color="red" onClick={heartFalse} />
+      {heartValue ? (
+        <FaHeart size={26} color="red" onClick={heartDelete} />
       ) : (
-        <FaRegHeart size={26} color={colors.point} onClick={heartTrue} />
+        <FaRegHeart size={26} color={colors.point} onClick={heartClick} />
       )}
     </HeartIcon>
   );

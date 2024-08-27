@@ -103,7 +103,6 @@ export const Announ = () => {
             {pet &&
               pet.map((data) => (
                 <Con key={data.desertionNo}>
-                  <Heart />
                   <Link to={`/detail/${data.desertionNo}`}>
                     <Img>
                       <img src={data.popfile} alt={data.kindCd} />
