@@ -35,7 +35,7 @@ export const getDogData = () => {
 
 export const getProtectData = () => {
   return instance
-    .get(`abandonmentPublic?&numOfRows=20&state=protect$pasenum=1`)
+    .get(`abandonmentPublic?&numOfRows=20&state=protect&pageNo=1`)
     .then((res) => res.data);
 };
 

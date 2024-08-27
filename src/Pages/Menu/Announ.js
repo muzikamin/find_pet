@@ -14,9 +14,16 @@ import {
   Text,
   DiText,
   Icon,
+  FilterTitle,
+  Filter,
+  All,
+  Dog,
+  Cat,
+  Box,
 } from "../Menu/menuStyle";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { Heart } from "./Heart";
+import { useEffect, useState } from "react";
 
 export const Announ = () => {
   useScrollTop();
@@ -27,9 +34,32 @@ export const Announ = () => {
 
   const result = allData?.response?.body?.items?.item;
 
-  // let result = realData && realData.filter((v) => v.processState == "보호중");
+  const [pet, setPet] = useState(result);
+  const [color, setColor] = useState("allColor");
 
-  console.log(result);
+  const dog = result?.filter((data) => {
+    return data.kindCd.includes("[개]");
+  });
+
+  const cat = result?.filter((data) => {
+    return data.kindCd.includes("[고양이]");
+  });
+
+  const clickHandler = (data) => {
+    if (data === "all") {
+      setPet(result);
+    } else if (data === "dog") {
+      setPet(dog);
+    } else if (data === "cat") {
+      setPet(cat);
+    }
+  };
+
+  useEffect(() => {
+    setPet(result);
+  }, []);
+
+  console.log(pet);
 
   return (
     <>
@@ -37,9 +67,41 @@ export const Announ = () => {
         <Loading />
       ) : (
         <Container>
+          <Filter>
+            <h3>공고중 동물</h3>
+            <FilterTitle>
+              <Box
+                className={`${color === "allColor" ? "bg" : ""}`}
+                onClick={() => {
+                  clickHandler("all");
+                  setColor("allColor");
+                }}
+              >
+                모두
+              </Box>
+              <Box
+                className={`${color === "dogColor" ? "bg" : ""}`}
+                onClick={() => {
+                  clickHandler("dog");
+                  setColor("dogColor");
+                }}
+              >
+                강아지
+              </Box>
+              <Box
+                className={`${color === "catColor" ? "bg" : ""}`}
+                onClick={() => {
+                  clickHandler("cat");
+                  setColor("catColor");
+                }}
+              >
+                고양이
+              </Box>
+            </FilterTitle>
+          </Filter>
           <ConWrap>
-            {result &&
-              result.map((data) => (
+            {pet &&
+              pet.map((data) => (
                 <Con key={data.desertionNo}>
                   <Heart />
                   <Link to={`/detail/${data.desertionNo}`}>

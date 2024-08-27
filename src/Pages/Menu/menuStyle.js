@@ -12,6 +12,39 @@ export const Container = styled.div`
   }
 `;
 
+export const Filter = styled.div`
+  max-width: 1500px;
+  margin: 0 auto;
+  h3 {
+    font-size: 32px;
+    font-weight: 900;
+    color: ${colors.point};
+  }
+`;
+
+export const FilterTitle = styled.div`
+  display: flex;
+  padding: 20px 0;
+  font-size: 18px;
+
+  .bg {
+    background-color: ${colors.point};
+    color: #fff;
+    font-weight: 900;
+  }
+`;
+
+export const Box = styled.div`
+  width: 80px;
+  padding: 8px 10px;
+  border: 1.5px solid ${colors.point};
+  border-radius: 20px;
+  margin-right: 20px;
+  text-align: center;
+  background-color: #fff;
+  cursor: pointer;
+`;
+
 export const ConWrap = styled.div`
   max-width: 1500px;
   margin: 0 auto;
