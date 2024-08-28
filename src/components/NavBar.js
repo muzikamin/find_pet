@@ -56,19 +56,42 @@ const SideMenu = styled.ul`
 
   &.show_menu {
     display: flex;
-    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+    font-size: 20px;
     justify-content: space-around;
     background-color: ${colors.baseOpacity};
     opacity: 1;
     transition: 0.5s ease;
+
+    li {
+      padding: 40px 0;
+      border-bottom: 1px solid ${colors.point};
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
   }
 
   &.hide_menu {
-    display: flex;
-    padding: 20px;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    font-size: 20px;
     justify-content: space-around;
-    opacity: 0;
+    background-color: ${colors.baseOpacity};
+    opacity: 1;
     transition: 0.5s ease;
+
+    li {
+      padding: 40px 0;
+      border-bottom: 1px solid ${colors.point};
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
   }
 
   @media screen and (max-width: 560px) {

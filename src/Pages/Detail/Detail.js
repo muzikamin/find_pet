@@ -31,6 +31,7 @@ const BoxWrap = styled.div`
   border-radius: 30px;
   width: 100%;
   display: flex;
+  overflow: hidden;
 
   align-items: center;
   justify-content: space-between;
@@ -42,7 +43,7 @@ const BoxWrap = styled.div`
   }
 
   @media screen and (max-width: 500px) {
-    padding: 15px;
+    padding: 0;
   }
 `;
 
@@ -50,6 +51,7 @@ const ImgBox = styled.div`
   width: 48%;
 
   @media screen and (max-width: 960px) {
+    padding: 0;
     width: 100%;
     margin-bottom: 30px;
   }
@@ -70,7 +72,6 @@ const Img = styled.div`
   img {
     width: 100%;
     height: 100%;
-    border-radius: 30px;
     object-fit: cover;
   }
 `;
@@ -80,7 +81,7 @@ const ConBox = styled.div`
 
   @media screen and (max-width: 960px) {
     width: 100%;
-    padding: 15px;
+    padding: 20px;
   }
 `;
 
@@ -209,6 +210,10 @@ const CareText = styled.div`
 
 const CareTextWrap = styled.div`
   width: 100%;
+
+  @media screen and (max-width: 500px) {
+    padding: 15px;
+  }
 `;
 
 const Special = styled.div`
@@ -234,6 +239,11 @@ const HeartBox = styled.div`
   position: absolute;
   bottom: 30px;
   right: 30px;
+
+  @media screen and (max-width: 500px) {
+    bottom: 15px;
+    right: 15px;
+  }
 `;
 
 export const Detail = () => {

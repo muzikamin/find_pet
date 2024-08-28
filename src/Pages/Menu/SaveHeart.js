@@ -42,7 +42,11 @@ const Title = styled.div`
 const NoText = styled.div`
   margin: 100px 0;
   font-size: 20px;
-  /* text-align: center; */
+
+  @media screen and (max-width: 860px) {
+    /* margin: 100px auto; */
+    text-align: center;
+  }
 `;
 
 const FindPet = styled.div`
@@ -57,6 +61,17 @@ const FindPet = styled.div`
   font-size: 18px;
   color: white;
   cursor: pointer;
+
+  @media screen and (max-width: 860px) {
+    margin: 100px auto;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 300px;
+    margin: 100px auto;
+    text-align: center;
+  }
 `;
 
 const TextBox = styled.div`
